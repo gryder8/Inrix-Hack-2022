@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23EE90A829204824004DDE65 /* HealthKitAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE90A729204824004DDE65 /* HealthKitAccessor.swift */; };
 		86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86263C5F292028FB00C632BB /* RouteSelectionView.swift */; };
 		86263C6229202A5200C632BB /* RoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86263C6129202A5200C632BB /* RoutesModel.swift */; };
 		86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80D72918AD5800F69A5A /* Inrix_Hack_2022App.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EE90A729204824004DDE65 /* HealthKitAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAccessor.swift; sourceTree = "<group>"; };
 		86263C5F292028FB00C632BB /* RouteSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSelectionView.swift; sourceTree = "<group>"; };
 		86263C6129202A5200C632BB /* RoutesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModel.swift; sourceTree = "<group>"; };
 		86CB80D42918AD5800F69A5A /* Inrix Hack 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inrix Hack 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				86CB80D72918AD5800F69A5A /* Inrix_Hack_2022App.swift */,
+				23EE90A729204824004DDE65 /* HealthKitAccessor.swift */,
 				86CB80D92918AD5800F69A5A /* ContentView.swift */,
 				86CB80E82918AECF00F69A5A /* MapView.swift */,
 				86263C5F292028FB00C632BB /* RouteSelectionView.swift */,
@@ -155,6 +158,7 @@
 				86CB80DA2918AD5800F69A5A /* ContentView.swift in Sources */,
 				86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */,
 				86263C6229202A5200C632BB /* RoutesModel.swift in Sources */,
+				23EE90A829204824004DDE65 /* HealthKitAccessor.swift in Sources */,
 				86CB80E92918AECF00F69A5A /* MapView.swift in Sources */,
 				86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */,
 			);
@@ -281,7 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Inrix Hack 2022/Preview Content\"";
-				DEVELOPMENT_TEAM = LTHP4N872E;
+				DEVELOPMENT_TEAM = B6J2R94WY7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -300,7 +304,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -319,7 +323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Inrix Hack 2022/Preview Content\"";
-				DEVELOPMENT_TEAM = LTHP4N872E;
+				DEVELOPMENT_TEAM = B6J2R94WY7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -338,7 +342,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
