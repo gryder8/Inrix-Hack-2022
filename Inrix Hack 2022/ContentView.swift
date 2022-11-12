@@ -14,7 +14,12 @@ struct ContentView: View {
             Text("INRIX Hack 2022!")
         }
         .padding()
+        .onAppear {
+            let accessor = HealthKitAccessor()
+            accessor.setUpHealthRequest()
+        }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

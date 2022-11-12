@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23EE90A829204824004DDE65 /* HealthKitAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EE90A729204824004DDE65 /* HealthKitAccessor.swift */; };
 		86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86263C5F292028FB00C632BB /* RouteSelectionView.swift */; };
 		86263C6229202A5200C632BB /* RoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86263C6129202A5200C632BB /* RoutesModel.swift */; };
 		86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80D72918AD5800F69A5A /* Inrix_Hack_2022App.swift */; };
@@ -15,9 +16,11 @@
 		86CB80E02918AD5A00F69A5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CB80DF2918AD5A00F69A5A /* Preview Assets.xcassets */; };
 		86CB80E92918AECF00F69A5A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80E82918AECF00F69A5A /* MapView.swift */; };
 		86CB80EB2918AEE800F69A5A /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80EA2918AEE800F69A5A /* APIModel.swift */; };
+		B6E65CD929207955008D8001 /* MapDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E65CD829207955008D8001 /* MapDirections.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EE90A729204824004DDE65 /* HealthKitAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAccessor.swift; sourceTree = "<group>"; };
 		86263C5F292028FB00C632BB /* RouteSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSelectionView.swift; sourceTree = "<group>"; };
 		86263C6129202A5200C632BB /* RoutesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModel.swift; sourceTree = "<group>"; };
 		86CB80D42918AD5800F69A5A /* Inrix Hack 2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inrix Hack 2022.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +31,8 @@
 		86CB80DF2918AD5A00F69A5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		86CB80E82918AECF00F69A5A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		86CB80EA2918AEE800F69A5A /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		B6E65CD7292071C0008D8001 /* Inrix-Hack-2022-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Inrix-Hack-2022-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B6E65CD829207955008D8001 /* MapDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDirections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +65,10 @@
 		86CB80D62918AD5800F69A5A /* Inrix Hack 2022 */ = {
 			isa = PBXGroup;
 			children = (
+				B6E65CD7292071C0008D8001 /* Inrix-Hack-2022-Info.plist */,
 				86CB80D72918AD5800F69A5A /* Inrix_Hack_2022App.swift */,
+				23EE90A729204824004DDE65 /* HealthKitAccessor.swift */,
+				B6E65CD829207955008D8001 /* MapDirections.swift */,
 				86CB80D92918AD5800F69A5A /* ContentView.swift */,
 				86CB80E82918AECF00F69A5A /* MapView.swift */,
 				86263C5F292028FB00C632BB /* RouteSelectionView.swift */,
@@ -151,10 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E65CD929207955008D8001 /* MapDirections.swift in Sources */,
 				86CB80EB2918AEE800F69A5A /* APIModel.swift in Sources */,
 				86CB80DA2918AD5800F69A5A /* ContentView.swift in Sources */,
 				86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */,
 				86263C6229202A5200C632BB /* RoutesModel.swift in Sources */,
+				23EE90A829204824004DDE65 /* HealthKitAccessor.swift in Sources */,
 				86CB80E92918AECF00F69A5A /* MapView.swift in Sources */,
 				86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */,
 			);
@@ -281,10 +291,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Inrix Hack 2022/Preview Content\"";
-				DEVELOPMENT_TEAM = LTHP4N872E;
+				DEVELOPMENT_TEAM = R7V7GXUJDU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Inrix-Hack-2022-Info.plist";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = usetoaccesswalking/wheelchairinfo;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = usetoaccesswalking/wheelchairinfo;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = usetoaccesswalking/wheelchairinfo;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -295,12 +309,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -319,10 +333,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Inrix Hack 2022/Preview Content\"";
-				DEVELOPMENT_TEAM = LTHP4N872E;
+				DEVELOPMENT_TEAM = R7V7GXUJDU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Inrix-Hack-2022-Info.plist";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = usetoaccesswalking/wheelchairinfo;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = usetoaccesswalking/wheelchairinfo;
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = usetoaccesswalking/wheelchairinfo;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -333,12 +351,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gavin.Inrix-Hack-2022-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

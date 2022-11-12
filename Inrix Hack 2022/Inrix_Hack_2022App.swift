@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct Inrix_Hack_2022App: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
