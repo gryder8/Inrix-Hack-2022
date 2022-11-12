@@ -7,10 +7,32 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct MapView: View {
+    //@State var mapRect = MKMapRect(
+    
+    func setRegion() {
+        let centerCoord:CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.778, -122.441)
+        region = MKCoordinateRegion.init(center: centerCoord, latitudinalMeters: 9200, longitudinalMeters: 9200)
+    }
+    
+    @State private var region: MKCoordinateRegion = MKCoordinateRegion()
+    
+    
     var body: some View {
-        Text("Hi")
+        VStack {
+            Map(coordinateRegion: $region)
+                .frame(height: 300)
+                .padding()
+            Divider()
+            Text("Bottom Section")
+            Spacer()
+        }
+        .navigationTitle("Your Trip")
+        .onAppear {
+            setRegion()
+        }
     }
 }
 

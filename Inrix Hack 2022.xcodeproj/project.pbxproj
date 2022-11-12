@@ -19,6 +19,7 @@
 		86CF62142920374200E54DC8 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF62132920374200E54DC8 /* UserInfoModel.swift */; };
 		86CF6218292044F400E54DC8 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF6217292044F400E54DC8 /* NavigationModel.swift */; };
 		86CF621A29204B6400E54DC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF621929204B6400E54DC8 /* TestView.swift */; };
+		86CF621C292055A000E54DC8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF621B292055A000E54DC8 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		86CF62132920374200E54DC8 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		86CF6217292044F400E54DC8 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
 		86CF621929204B6400E54DC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		86CF621B292055A000E54DC8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				86CB80DB2918AD5A00F69A5A /* Assets.xcassets */,
 				86CB80DD2918AD5A00F69A5A /* Inrix_Hack_2022.entitlements */,
 				86CB80DE2918AD5A00F69A5A /* Preview Content */,
+				86CF621B292055A000E54DC8 /* Utils.swift */,
 			);
 			path = "Inrix Hack 2022";
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */,
 				86CF6218292044F400E54DC8 /* NavigationModel.swift in Sources */,
 				86CF621A29204B6400E54DC8 /* TestView.swift in Sources */,
+				86CF621C292055A000E54DC8 /* Utils.swift in Sources */,
 				86263C6229202A5200C632BB /* RoutesModel.swift in Sources */,
 				86CB80E92918AECF00F69A5A /* MapView.swift in Sources */,
 				86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */,
