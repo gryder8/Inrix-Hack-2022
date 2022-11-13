@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import CoreLocation
+import UIKit
 
 
 extension CLLocationCoordinate2D {
@@ -68,12 +69,18 @@ class Coordinator: NSObject, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is MKPointAnnotation else { return nil }
+        let annotTitle = annotation.title
+        
         
         let ident = "Annotation"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: ident)
         
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: ident)
+            if (annotTitle != "End" && annotTitle != "Start") {
+                annotationView?.image = UIImage(systemName: "parkingsign.circle.fill")
+            }
+            //annotation.pinT
             annotationView!.canShowCallout = true
         } else {
             annotationView!.annotation = annotation
@@ -104,14 +111,66 @@ struct MapDetailsBottomView: View {
     }
 }
 
+struct ParkingLotDetailView: View {
+    var name: String
+    var handicapSpaces: Int
+    var spotsAvailible: Int
+    var pct: Int
+    var lotLocation: CLLocation
+    var dest: CLLocation
+    
+    var dist: Int {
+        return Int(dest.distance(from: lotLocation).magnitude)
+    }
+    
+    var body: some View {
+        ZStack {
+            HStack {
+                Image(systemName: "parkingsign.circle.fill").font(.system(size: 48))
+                    .foregroundColor(.blue)
+                VStack {
+                    Text(name)
+                        .font(.system(size: 24, design: .rounded))
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            Text("Handicap Spots: \(handicapSpaces)")
+                                .padding(.horizontal, 5)
+                            Text("Total Spots: \(spotsAvailible)")
+                                .padding(.horizontal, 5)
+                            Text("\(pct)% usually availible")
+                            
+                        }
+                    }
+                    Text("Distance: \(dist) meters")
+                    .font(.body)
+                }
+                .foregroundColor(.white)
+            }
+            //RoundedRectangle(cornerRadius: 10).background(.thickMaterial)
+            
+        }
+        .frame(height: 100)
+    }
+}
+
 
 struct AppleMapView: View {
     
     
     var region: MKCoordinateRegion
-    private var lineCoords:[CLLocationCoordinate2D] { return TestData().routeToCoordsArray().map { location in
-        return CLLocationCoordinate2D(location)
-    }
+    private var lineCoords:[CLLocationCoordinate2D] {
+        guard let firstRoute = apiModel.routes.first else {
+            print("No first route!")
+            return []
+        }
+        
+        return firstRoute.points.coordinates.map { coord in
+            return CLLocationCoordinate2D(CLLocation(latitude: coord[1], longitude: coord[0]))
+        }
+        
+        //TestData().routeToCoordsArray().map { location in
+        //return CLLocationCoordinate2D(location)
+    //}
     }
     
     @EnvironmentObject var userInfoModel: UserInfoModel
@@ -119,7 +178,6 @@ struct AppleMapView: View {
     
     var route: Route
     
-    //TODO: will need to add the parking lots locations from the API
     var annotations: [Place] {
         let startLoc = CLLocationCoordinate2D(route.start)
         let endLoc = CLLocationCoordinate2D(route.end)
@@ -135,11 +193,18 @@ struct AppleMapView: View {
                 MapView(region: region, lineCoordinates: lineCoords, annotationItems: annotations)
                     .frame(height: 300)
                 Divider()
-                Text(route.name)
+                Text("Parking for \(route.name)")
                     .font(.headline)
+                List(apiModel.lots, id: \.self) { lot in
+                    ParkingLotDetailView(name: lot.name, handicapSpaces: lot.handicapSpacesTotal, spotsAvailible: lot.occupancy.available, pct: lot.occupancy.pct, lotLocation: CLLocation(latitude: lot.point.coordinates[1], longitude: lot.point.coordinates[0]), dest: route.end)
+                        .listRowBackground(Color.clear)
+                }
+                
                 Spacer()
             } else {
                 Text("Loading...")
+                    .font(.largeTitle)
+                    .padding()
             }
         }
         .navigationTitle("Your Trip")

@@ -28,9 +28,11 @@ class WalkingRoutesModel: ObservableObject {
     }
     
     func calcUsing(destination: CLLocation, lotLocations: [CLLocation]) {
+        print("Calculating routes!")
         self.destination = destination
         self.lotLocations = lotLocations
         self.calcRoutes()
+        print("Found \(routes.count) routes")
     }
     
     func calcRoutes() {
@@ -41,8 +43,14 @@ class WalkingRoutesModel: ObservableObject {
             request.requestsAlternateRoutes = false
             request.transportType = .walking
             let directions = MKDirections(request: request)
+            print("Getting directions from \(location)")
             
             directions.calculate { [weak self] response, error in
+                guard error == nil else {
+                    print("Error in getting directions! \(error)")
+                    return
+                }
+                
                 guard let self = self else {
                     return
                 }
@@ -53,7 +61,10 @@ class WalkingRoutesModel: ObservableObject {
                 }
                 
                 for route in unwrappedResponse.routes {
-                    self.routes.append(route)
+                    DispatchQueue.main.async {
+                        self.routes.append(route)
+                    }
+                    print("Found walking route of distance: \(route.distance.magnitude)")
                 }
             }
         }

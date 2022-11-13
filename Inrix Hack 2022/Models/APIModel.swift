@@ -44,7 +44,7 @@ class APIModel: ObservableObject {
         var routes: [Route]
     }
 
-    struct Lot: Codable {
+    struct Lot: Codable, Hashable {
         var occupancy: LotOccupancy
         var point: Coordinate
         var url: String
@@ -52,12 +52,9 @@ class APIModel: ObservableObject {
         var name: String
     }
 
-    struct Route: Codable {
-        
-    }
 
 
-    struct LotOccupancy: Codable {
+    struct LotOccupancy: Codable, Hashable {
         var available: Int
         var pct: Int
         var probability: Int
@@ -67,8 +64,34 @@ class APIModel: ObservableObject {
         var point: Coordinate
     }
 
-    struct Coordinate: Codable {
+    struct Coordinate: Codable, Hashable {
         var coordinates: [Double]
+    }
+
+    struct Route: Codable {
+        var points: Points
+        var travelTimeMinutes: Int
+        var boundingBox: BoundingBox
+    }
+    struct Trip: Codable {
+        var waypoints: [Waypoints]
+    }
+    struct Waypoints: Codable {
+        var geometry: Geometry
+    }
+    struct Geometry: Codable {
+        var point: Points
+    }
+    struct BoundingBox: Codable {
+        var corner1: Corner
+        var corner2: Corner
+    }
+    struct Corner: Codable {
+        var coordinates: [[Double]]
+    }
+
+    struct Points: Codable {
+        var coordinates: [[Double]]
     }
 
     func fetchData() async {
@@ -87,15 +110,16 @@ class APIModel: ObservableObject {
             
             DispatchQueue.main.async { //update published properties
                 self.lots = result.lots
+                self.routes = result.routes
                 self.isLoaded = true
             }
             let lotLocations = lots.map { lot in
                 return CLLocation(latitude: lot.point.coordinates[1], longitude: lot.point.coordinates[0])
             }
-            walkingRoutesModel.calcUsing(destination: self.destination, lotLocations: lotLocations)
-            DispatchQueue.main.async {
-                self.walkingRoutes = self.walkingRoutesModel.routes
-            }
+            //walkingRoutesModel.calcUsing(destination: self.destination, lotLocations: lotLocations)
+//            DispatchQueue.main.async {
+//                self.walkingRoutes = self.walkingRoutesModel.routes
+//            }
             
 //            print(result.lots[2].point.coordinates)
 //            print(result.lots[0].handicapSpacesTotal)

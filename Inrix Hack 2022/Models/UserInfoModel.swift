@@ -21,7 +21,7 @@ class UserInfoModel: ObservableObject {
 //        return typeIdentifiers.compactMap { getSampleType(for: $0) }
 //    }
         
-    @Published var walkSpeed: Double = 0.0
+    @Published var walkSpeed: Double = 3
     @Published var isHandicapped: Bool = true
     @Published var timeFrame: Int = 30
     

@@ -98,8 +98,15 @@ struct EnterUserInfoView: View {
         }
         .navigationTitle("About You")
         .onAppear {
+            
+            let fmt = NumberFormatter()
+            fmt.maximumFractionDigits = 1
+            fmt.minimumFractionDigits = 1
+                                              
             apiModel.start = route.start
             apiModel.destination = route.end
+            print("***Walk SPEED: \(userInfoModel.walkSpeed)")
+            //self.walkSpeedInput = fmt.string(from: (userInfoModel.walkSpeed as NSNumber) / 10) ?? ""
             healthKitAccessor.setUpHealthRequest()
             if (healthKitAccessor.walkSpeed != 0.0) {
                 self.walkSpeedInput = String(healthKitAccessor.walkSpeed)
