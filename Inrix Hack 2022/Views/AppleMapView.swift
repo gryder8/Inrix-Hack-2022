@@ -70,16 +70,16 @@ struct Place: Identifiable {
 
 
 struct AppleMapView: View {
-    //@State var mapRect = MKMapRect(
     
     func regionForRoute(_ route: Route) {
-        let padding = 0.015
+        
         let start = CLLocationCoordinate2D(route.start)
         let end = CLLocationCoordinate2D(route.end)
         let p1 = MKMapPoint(start);
         let p2 = MKMapPoint(end);
-        let mapRect = MKMapRect(x: min(p1.x, p2.x) - padding/2, y: min(p1.y, p2.y) + padding/2, width: abs(p1.x-p2.x) + padding, height: abs(p1.y-p2.y) + padding)
+        let mapRect = MKMapRect(x: min(p1.x, p2.x), y: min(p1.y, p2.y), width: abs(p1.x-p2.x), height: abs(p1.y-p2.y))
         var region = MKCoordinateRegion(mapRect)
+        let padding = 0.000001111 * sqrt(pow(abs(p1.x - p2.x), 2) + pow(abs(p1.y - p2.y), 2))
         region.span.longitudeDelta = padding
         region.span.latitudeDelta = padding
         self.region = region

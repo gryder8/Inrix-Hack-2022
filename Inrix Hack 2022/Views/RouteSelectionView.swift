@@ -15,11 +15,11 @@ struct RouteView: View {
         ZStack {
             Text(route.name)
                 .font(.system(size: 20, design: .rounded))
-                .foregroundColor(.black)
+                //.foregroundColor(.black)
                 .padding()
                 .background(
-                    .ultraThickMaterial,
-                    in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .thickMaterial,
+                    in: RoundedRectangle(cornerRadius: 10, style: .continuous)
                 )
                 .multilineTextAlignment(.center)
         }
@@ -65,6 +65,6 @@ struct RouteSelectionView: View {
 
 struct RouteSelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        RouteSelectionView()
+        RouteSelectionView().environmentObject(MyNavigationModel())
     }
 }
