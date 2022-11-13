@@ -9,11 +9,12 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    
+    @StateObject private var navModel = MyNavigationModel()
+    
     var body: some View {
-        VStack {
-            Text("INRIX Hack 2022!")
-        }
-        .padding()
+        RouteSelectionView()
+            .environmentObject(navModel)
     }
 }
 

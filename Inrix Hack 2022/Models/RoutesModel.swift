@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct Route: Identifiable {
+struct Route: Identifiable, Hashable {
     var start: CLLocation
     var end: CLLocation
     var id: UUID
