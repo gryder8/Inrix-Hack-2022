@@ -8,12 +8,16 @@
 import SwiftUI
 import Combine
 import CoreLocation
+import MapKit
 
 
 struct EnterUserInfoView: View {
     
     @EnvironmentObject var userInfoModel: UserInfoModel
     @State private var walkSpeedInput = ""
+    
+    private let healthKitAccessor = HealthKitAccessor()
+    
     
     var route: Route
     
@@ -25,6 +29,21 @@ struct EnterUserInfoView: View {
         }
         
         return res
+    }
+    
+    func regionForRoute(_ route: Route) -> MKCoordinateRegion {
+        
+        let start = CLLocationCoordinate2D(route.start)
+        let end = CLLocationCoordinate2D(route.end)
+        let p1 = MKMapPoint(start);
+        let p2 = MKMapPoint(end);
+        let mapRect = MKMapRect(x: min(p1.x, p2.x), y: min(p1.y, p2.y), width: abs(p1.x-p2.x), height: abs(p1.y-p2.y))
+        var region = MKCoordinateRegion(mapRect)
+        let padding = 0.000001111 * sqrt(pow(abs(p1.x - p2.x), 2) + pow(abs(p1.y - p2.y), 2))
+        region.span.longitudeDelta = padding
+        region.span.latitudeDelta = padding
+        return region
+        
     }
     
     var body: some View {
@@ -40,7 +59,7 @@ struct EnterUserInfoView: View {
                                 userInfoModel.walkSpeed = Double(self.walkSpeedInput) ?? 0.0
                             }
                         }
-                    Toggle("Handicapped?", isOn: $userInfoModel.isHandicapped)
+                    Toggle("Handicapped", isOn: $userInfoModel.isHandicapped)
                 }
                 Section("Timeframe") {
                     Picker("Timeframe", selection: $userInfoModel.timeFrame) {
@@ -53,7 +72,7 @@ struct EnterUserInfoView: View {
             .padding([.bottom, .horizontal])
             .cornerRadius(10)
             NavigationLink(destination: {
-                AppleMapView(route: route).environmentObject(userInfoModel)
+                AppleMapView(region: regionForRoute(route), route: route).environmentObject(userInfoModel)
             }, label: {
                 Text("Let's Go!")
                     .foregroundColor(.green)
@@ -67,6 +86,15 @@ struct EnterUserInfoView: View {
             Spacer()
         }
         .navigationTitle("About You")
+        .onAppear {
+            healthKitAccessor.setUpHealthRequest()
+            if (healthKitAccessor.walkSpeed != 0.0) {
+                self.walkSpeedInput = String(healthKitAccessor.walkSpeed)
+                print("Found walkspeed of \(healthKitAccessor.walkSpeed)")
+            } else {
+                print("Found a value of 0.0!")
+            }
+        }
     }
 }
 

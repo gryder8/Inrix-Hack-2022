@@ -18,8 +18,8 @@
 		86CF62122920372800E54DC8 /* EnterUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF62112920372800E54DC8 /* EnterUserInfoView.swift */; };
 		86CF62142920374200E54DC8 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF62132920374200E54DC8 /* UserInfoModel.swift */; };
 		86CF6218292044F400E54DC8 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF6217292044F400E54DC8 /* NavigationModel.swift */; };
-		86CF621A29204B6400E54DC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF621929204B6400E54DC8 /* TestView.swift */; };
 		86CF621C292055A000E54DC8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF621B292055A000E54DC8 /* Utils.swift */; };
+		86CF621E29208C1E00E54DC8 /* HealthKitAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF621D29208C1E00E54DC8 /* HealthKitAccessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		86CF62112920372800E54DC8 /* EnterUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUserInfoView.swift; sourceTree = "<group>"; };
 		86CF62132920374200E54DC8 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		86CF6217292044F400E54DC8 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
-		86CF621929204B6400E54DC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		86CF621B292055A000E54DC8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		86CF621D29208C1E00E54DC8 /* HealthKitAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitAccessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,6 @@
 		86CB80CB2918AD5800F69A5A = {
 			isa = PBXGroup;
 			children = (
-				86CF621929204B6400E54DC8 /* TestView.swift */,
 				86CB80D62918AD5800F69A5A /* Inrix Hack 2022 */,
 				86CB80D52918AD5800F69A5A /* Products */,
 			);
@@ -72,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				86CB80D72918AD5800F69A5A /* Inrix_Hack_2022App.swift */,
+				86CF621F29208C2800E54DC8 /* HealthKit */,
 				86CF6216292044E200E54DC8 /* Views */,
 				86CF6215292044D800E54DC8 /* Models */,
 				86CB80DB2918AD5A00F69A5A /* Assets.xcassets */,
@@ -110,6 +110,14 @@
 				86CF62112920372800E54DC8 /* EnterUserInfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		86CF621F29208C2800E54DC8 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				86CF621D29208C1E00E54DC8 /* HealthKitAccessor.swift */,
+			);
+			path = HealthKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,10 +196,10 @@
 				86CB80DA2918AD5800F69A5A /* ContentView.swift in Sources */,
 				86263C60292028FB00C632BB /* RouteSelectionView.swift in Sources */,
 				86CF6218292044F400E54DC8 /* NavigationModel.swift in Sources */,
-				86CF621A29204B6400E54DC8 /* TestView.swift in Sources */,
 				86CF621C292055A000E54DC8 /* Utils.swift in Sources */,
 				86263C6229202A5200C632BB /* RoutesModel.swift in Sources */,
 				86CB80E92918AECF00F69A5A /* AppleMapView.swift in Sources */,
+				86CF621E29208C1E00E54DC8 /* HealthKitAccessor.swift in Sources */,
 				86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +329,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Getting walking and disability information";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your records are not shared";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your records are not modified by us";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -359,6 +370,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Getting walking and disability information";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your records are not shared";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your records are not modified by us";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

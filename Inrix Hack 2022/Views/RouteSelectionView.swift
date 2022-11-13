@@ -30,6 +30,8 @@ struct RouteView: View {
 
 struct RouteSelectionView: View {
     
+
+    
     let routeModel = RouteModel.shared
     
     @EnvironmentObject private var navModel: MyNavigationModel
@@ -38,8 +40,6 @@ struct RouteSelectionView: View {
     var body: some View {
         NavigationStack(path: $navModel.path) {
             VStack {
-                //Text()
-                    //.font(.largeTitle)
                 ForEach(routeModel.getRoutes()) { route in
                     
                     NavigationLink(value: route) {
@@ -48,13 +48,10 @@ struct RouteSelectionView: View {
                 }
                 .navigationTitle("Choose Your Route!")
                 .navigationDestination(for: Route.self, destination: { route in
-                    //TestView()
                     EnterUserInfoView(route: route)
                         .environmentObject(userInfoModel)
                 })
-//                .onChange(of: self.navModel.path, perform: { newPath in
-//                    print("Path now has \(newPath.count) values")
-//                })
+
                 Spacer()
             }
             .padding()
