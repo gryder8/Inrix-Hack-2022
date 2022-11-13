@@ -15,8 +15,8 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            let accessor = HealthKitAccessor()
-            accessor.setUpHealthRequest()
+            var temp = RouteModel()
+            WalkRoute(s: temp.route1.start, f: temp.route1.end)
         }
     }
 
