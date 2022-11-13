@@ -52,9 +52,9 @@ struct RouteSelectionView: View {
                     EnterUserInfoView(route: route)
                         .environmentObject(userInfoModel)
                 })
-                .onChange(of: self.navModel.path, perform: { newPath in
-                    print("Path now has \(newPath.count) values")
-                })
+//                .onChange(of: self.navModel.path, perform: { newPath in
+//                    print("Path now has \(newPath.count) values")
+//                })
                 Spacer()
             }
             .padding()

@@ -13,7 +13,7 @@
 		86CB80DA2918AD5800F69A5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80D92918AD5800F69A5A /* ContentView.swift */; };
 		86CB80DC2918AD5A00F69A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CB80DB2918AD5A00F69A5A /* Assets.xcassets */; };
 		86CB80E02918AD5A00F69A5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86CB80DF2918AD5A00F69A5A /* Preview Assets.xcassets */; };
-		86CB80E92918AECF00F69A5A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80E82918AECF00F69A5A /* MapView.swift */; };
+		86CB80E92918AECF00F69A5A /* AppleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80E82918AECF00F69A5A /* AppleMapView.swift */; };
 		86CB80EB2918AEE800F69A5A /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CB80EA2918AEE800F69A5A /* APIModel.swift */; };
 		86CF62122920372800E54DC8 /* EnterUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF62112920372800E54DC8 /* EnterUserInfoView.swift */; };
 		86CF62142920374200E54DC8 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF62132920374200E54DC8 /* UserInfoModel.swift */; };
@@ -31,7 +31,7 @@
 		86CB80DB2918AD5A00F69A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86CB80DD2918AD5A00F69A5A /* Inrix_Hack_2022.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Inrix_Hack_2022.entitlements; sourceTree = "<group>"; };
 		86CB80DF2918AD5A00F69A5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		86CB80E82918AECF00F69A5A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		86CB80E82918AECF00F69A5A /* AppleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapView.swift; sourceTree = "<group>"; };
 		86CB80EA2918AEE800F69A5A /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		86CF62112920372800E54DC8 /* EnterUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUserInfoView.swift; sourceTree = "<group>"; };
 		86CF62132920374200E54DC8 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				86CB80D92918AD5800F69A5A /* ContentView.swift */,
-				86CB80E82918AECF00F69A5A /* MapView.swift */,
+				86CB80E82918AECF00F69A5A /* AppleMapView.swift */,
 				86263C5F292028FB00C632BB /* RouteSelectionView.swift */,
 				86CF62112920372800E54DC8 /* EnterUserInfoView.swift */,
 			);
@@ -191,7 +191,7 @@
 				86CF621A29204B6400E54DC8 /* TestView.swift in Sources */,
 				86CF621C292055A000E54DC8 /* Utils.swift in Sources */,
 				86263C6229202A5200C632BB /* RoutesModel.swift in Sources */,
-				86CB80E92918AECF00F69A5A /* MapView.swift in Sources */,
+				86CB80E92918AECF00F69A5A /* AppleMapView.swift in Sources */,
 				86CB80D82918AD5800F69A5A /* Inrix_Hack_2022App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

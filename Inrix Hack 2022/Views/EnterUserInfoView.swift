@@ -52,7 +52,9 @@ struct EnterUserInfoView: View {
             }
             .padding([.bottom, .horizontal])
             .cornerRadius(10)
-            NavigationLink(destination: {MapView()}, label: {
+            NavigationLink(destination: {
+                AppleMapView(route: route).environmentObject(userInfoModel)
+            }, label: {
                 Text("Let's Go!")
                     .foregroundColor(.green)
                     .font(.system(size: 20, design: .rounded))
