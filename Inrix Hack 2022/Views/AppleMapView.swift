@@ -118,6 +118,7 @@ struct ParkingLotDetailView: View {
     var pct: Int
     var lotLocation: CLLocation
     var dest: CLLocation
+    var userInfoModel: UserInfoModel
     
     var dist: Int {
         return Int(dest.distance(from: lotLocation).magnitude)
@@ -141,7 +142,7 @@ struct ParkingLotDetailView: View {
                             
                         }
                     }
-                    Text("Distance: \(dist) meters")
+                    Text("Distance: \(dist) meters, \((dist/Int(userInfoModel.walkSpeed)) / 60 ) min away")
                     .font(.body)
                 }
                 .foregroundColor(.white)
@@ -196,7 +197,7 @@ struct AppleMapView: View {
                 Text("Parking for \(route.name)")
                     .font(.headline)
                 List(apiModel.lots, id: \.self) { lot in
-                    ParkingLotDetailView(name: lot.name, handicapSpaces: lot.handicapSpacesTotal, spotsAvailible: lot.occupancy.available, pct: lot.occupancy.pct, lotLocation: CLLocation(latitude: lot.point.coordinates[1], longitude: lot.point.coordinates[0]), dest: route.end)
+                    ParkingLotDetailView(name: lot.name, handicapSpaces: lot.handicapSpacesTotal, spotsAvailible: lot.occupancy.available, pct: lot.occupancy.pct, lotLocation: CLLocation(latitude: lot.point.coordinates[1], longitude: lot.point.coordinates[0]), dest: route.end, userInfoModel: userInfoModel)
                         .listRowBackground(Color.clear)
                 }
                 

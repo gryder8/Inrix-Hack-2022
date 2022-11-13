@@ -52,7 +52,7 @@ struct EnterUserInfoView: View {
         VStack {
             Form {
                 Section("Mobility") {
-                    TextField("Walking Speed", text: $walkSpeedInput)
+                    TextField("Movement Speed", text: $walkSpeedInput)
                         .keyboardType(.numberPad)
                         .onReceive(Just(walkSpeedInput)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }

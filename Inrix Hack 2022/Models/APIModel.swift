@@ -116,6 +116,16 @@ class APIModel: ObservableObject {
             let lotLocations = lots.map { lot in
                 return CLLocation(latitude: lot.point.coordinates[1], longitude: lot.point.coordinates[0])
             }
+            
+            DispatchQueue.main.async {
+                self.lots = self.lots.sorted(by: { lot1, lot2 in
+                    let loc1 = CLLocation(latitude: lot1.point.coordinates[1], longitude: lot1.point.coordinates[0])
+                    let loc2 = CLLocation(latitude: lot1.point.coordinates[1], longitude: lot1.point.coordinates[0])
+                    return loc1.distance(from: self.destination) > loc2.distance(from: self.destination)
+                })
+            }
+            
+            
             //walkingRoutesModel.calcUsing(destination: self.destination, lotLocations: lotLocations)
 //            DispatchQueue.main.async {
 //                self.walkingRoutes = self.walkingRoutesModel.routes
