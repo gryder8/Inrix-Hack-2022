@@ -16,6 +16,8 @@ struct EnterUserInfoView: View {
     @EnvironmentObject var userInfoModel: UserInfoModel
     @State private var walkSpeedInput = ""
     
+    @StateObject var apiModel = APIModel()
+    
     private let healthKitAccessor = HealthKitAccessor()
     
     
@@ -72,7 +74,9 @@ struct EnterUserInfoView: View {
             .padding([.bottom, .horizontal])
             .cornerRadius(10)
             NavigationLink(destination: {
-                AppleMapView(region: regionForRoute(route), route: route).environmentObject(userInfoModel)
+                AppleMapView(region: regionForRoute(route), route: route)
+                    .environmentObject(userInfoModel)
+                    .environmentObject(apiModel)
             }, label: {
                 Text("Let's Go!")
                     .foregroundColor(.green)
@@ -82,11 +86,20 @@ struct EnterUserInfoView: View {
                         .thickMaterial,
                         in: RoundedRectangle(cornerRadius: 10, style: .continuous)
                     )
+                
             })
+            .simultaneousGesture(TapGesture().onEnded({
+                print("Nav link pressed, fetching API!")
+                Task(priority: .high) {
+                    await apiModel.fetchData()
+                }
+            }))
             Spacer()
         }
         .navigationTitle("About You")
         .onAppear {
+            apiModel.start = route.start
+            apiModel.destination = route.end
             healthKitAccessor.setUpHealthRequest()
             if (healthKitAccessor.walkSpeed != 0.0) {
                 self.walkSpeedInput = String(healthKitAccessor.walkSpeed)

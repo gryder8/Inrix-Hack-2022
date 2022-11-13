@@ -92,6 +92,18 @@ struct Place: Identifiable {
 }
 
 
+struct MapDetailsBottomView: View {
+    
+    var travelTime: Int
+    
+    
+    var body: some View {
+        VStack {
+            
+        }
+    }
+}
+
 
 struct AppleMapView: View {
     
@@ -101,25 +113,34 @@ struct AppleMapView: View {
         return CLLocationCoordinate2D(location)
     }
     }
+    
     @EnvironmentObject var userInfoModel: UserInfoModel
+    @EnvironmentObject var apiModel: APIModel
+    
     var route: Route
     
     //TODO: will need to add the parking lots locations from the API
     var annotations: [Place] {
         let startLoc = CLLocationCoordinate2D(route.start)
         let endLoc = CLLocationCoordinate2D(route.end)
-        return [Place(name: "Start", coordinate: startLoc, tintColor: .green), Place(name: "End", coordinate: endLoc)]
+        var res =  [Place(name: "Start", coordinate: startLoc, tintColor: .green), Place(name: "End", coordinate: endLoc)]
+        res.append(contentsOf: apiModel.parkingLotLocations())
+        return res
     }
     
     
     var body: some View {
         VStack {
-            MapView(region: region, lineCoordinates: lineCoords, annotationItems: annotations)
-                .frame(height: 300)
-            Divider()
-            Text(route.name)
-                .font(.subheadline)
-            Spacer()
+            if (apiModel.isLoaded) {
+                MapView(region: region, lineCoordinates: lineCoords, annotationItems: annotations)
+                    .frame(height: 300)
+                Divider()
+                Text(route.name)
+                    .font(.headline)
+                Spacer()
+            } else {
+                Text("Loading...")
+            }
         }
         .navigationTitle("Your Trip")
     }
